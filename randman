@@ -1,0 +1,8 @@
+#!/bin/sh
+
+find /usr/share/man/man1 -type f \
+	| awk -F / '{ print $NF }' \
+	| sed 's/.gz//g' \
+	| shuf \
+	| head -n 1\
+	| xargs man
